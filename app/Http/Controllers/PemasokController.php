@@ -68,7 +68,7 @@ class PemasokController extends Controller
     {
         //
         $pemasok = Pemasok::findOrFail($id);
-        $produk = Produk::all()->where('id_produk','!=',$pemasok->id_produk);
+        $produk = Produk::all();
         return view('pemasok.edit', [
             'pemasok' => $pemasok,
             'produk' => $produk

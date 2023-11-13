@@ -68,7 +68,7 @@ class ProdukController extends Controller
     {
         //
         $produk = Produk::findOrFail($id);
-        $perusahaan = Perusahaan::all()->where('id_perusahaan', '!=', $produk->id_perusahaan);
+        $perusahaan = Perusahaan::all();
         return view('produk.edit', [
             'produk' => $produk,
             'perusahaan' => $perusahaan
@@ -87,6 +87,7 @@ class ProdukController extends Controller
             'harga' => 'required|numeric|min:0',
             'id_perusahaan' => 'required|exists:tb_perusahaan,id_perusahaan',
         ]);
+        
         $produk = Produk::findOrFail($id);
         $produk->update($request->all());
 

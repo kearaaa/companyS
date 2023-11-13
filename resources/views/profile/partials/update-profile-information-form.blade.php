@@ -25,7 +25,7 @@
         @endif
       </div>
     </div>
-    <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar', $user->avatar)" required
+    <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar', $user->avatar)"
       autofocus autocomplete="avatar" />
     <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
 

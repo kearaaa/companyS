@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Karyawan;
 use App\Models\Perusahaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class KaryawanController extends Controller
@@ -69,7 +70,7 @@ class KaryawanController extends Controller
     {
         //
         $karyawan = Karyawan::findOrFail($id);
-        $perusahaan = Perusahaan::all()->where('id_perusahaan', '!=', $karyawan->id_perusahaan);
+        $perusahaan = Perusahaan::all();
         return view('karyawan.edit', [
             'karyawan' => $karyawan,
             'perusahaan' => $perusahaan
@@ -96,7 +97,7 @@ class KaryawanController extends Controller
             Session::flash('status', 'success');
             Session::flash('message', 'data berhasil diubah');
         }
-        return redirect('/karyawan');
+        return Redirect::route('karyawan');
     }
 
     /**

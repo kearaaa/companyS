@@ -125,9 +125,9 @@ class PenjualanController extends Controller
     {
         //
         $penjualan = Penjualan::findOrFail($id);
-        $pelanggan = Pelanggan::all()->where('id_pelanggan', '!=', $penjualan->id_pelanggan);
-        $produk = Produk::all()->where('id_produk', '!=', $penjualan->id_produk);
-        $pembelian = Pembelian::all()->where('id_pembelian', '!=', $penjualan->id_pembelian);
+        $pelanggan = Pelanggan::all();
+        $produk = Produk::all();
+        $pembelian = Pembelian::all();
         $pemasok = Pemasok::all();
         return view('penjualan.edit', [
             'penjualan' => $penjualan,

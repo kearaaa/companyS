@@ -68,7 +68,7 @@ class PembelianController extends Controller
     {
         //
         $pembelian = Pembelian::findOrFail($id);
-        $pemasok = Pemasok::all()->where('id_pemasok', '!=', $pembelian->id_pemasok);
+        $pemasok = Pemasok::all();
         return view('pembelian.edit', [
             'pembelian' => $pembelian,
             'pemasok' => $pemasok
@@ -86,7 +86,7 @@ class PembelianController extends Controller
             'id_pemasok' => 'required|exists:tb_pemasok,id_pemasok',
             'jumlah_produk' => 'required|numeric|min:0'
         ]);
-        
+
         $pembelian = Pembelian::findOrFail($id);
         $pembelian->update($request->all());
 

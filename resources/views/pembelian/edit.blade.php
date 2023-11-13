@@ -33,9 +33,8 @@
               <label for="id_pemasok" class="block text-sm font-medium text-white">Nama Pemasok:</label>
               <select id="id_pemasok" name="id_pemasok" required
                 class="border rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:border-blue-300 bg-slate-500 text-white">
-                <option value="{{ $pembelian->pemasok->id_pemasok }}">{{ $pembelian->pemasok->nama_pemasok }}</option>
                 @foreach ($pemasok as $p)
-                  <option value="{{ $p->id_pemasok }}">{{ $p->nama_pemasok }}</option>
+                  <option value="{{ $p->id_pemasok }}" {{ $p->id_pemasok == $pembelian->id_pemasok ? 'selected' : '' }}>{{ $p->nama_pemasok }}</option>
                 @endforeach
               </select>
             </div>

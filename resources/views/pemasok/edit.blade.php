@@ -44,9 +44,8 @@
               <label for="id_produk" class="block text-sm font-medium text-white">Nama Produk:</label>
               <select id="id_produk" name="id_produk" required
                 class="border rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:border-blue-300 bg-slate-500 text-white">
-                <option value="{{ $pemasok->produk->id_produk }}">{{ $pemasok->produk->nama_produk }}</option>
                 @foreach ($produk as $p)
-                  <option value="{{ $p->id_produk }}">{{ $p->nama_produk }}</option>
+                  <option value="{{ $p->id_produk }}" {{ $p->id_produk == $pemasok->id_produk ? 'selected' : '' }}>{{ $p->nama_produk }}</option>
                 @endforeach
               </select>
             </div>

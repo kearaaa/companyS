@@ -26,7 +26,7 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request): RedirectResponse //pelajari
     {
         $user = Auth::user();
 
@@ -39,11 +39,11 @@ class ProfileController extends Controller
             }
         }
 
-        $request->user()->fill($request->validated());
+        $request->user()->fill($request->validated()); //pelajari
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+            if ($request->user()->isDirty('email')) { //pelajari
+                $request->user()->email_verified_at = null;
+            }
 
         if ($request->hasFile('avatar')) {
             $avatarFile = $request->file('avatar');
@@ -57,7 +57,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        return Redirect::route('profile.edit')->with('status', 'profile-updated'); //pelajari
     }
 
     /**
@@ -67,7 +67,7 @@ class ProfileController extends Controller
     {
         $request->validateWithBag('userDeletion', [
             'password' => ['required', 'current_password'],
-        ]);
+        ]); //pelajari
 
         $user = $request->user();
 

@@ -26,9 +26,8 @@
               <label for="id_pembelian" class="block text-sm font-medium text-white">Tanggal Stok Pembelian:</label>
               <select id="id_pembelian" name="id_pembelian" required
                 class="border rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:border-blue-300 bg-slate-500 text-white">
-                <option value="{{ $penjualan->pembelian->id_pembelian }}">{{ $penjualan->pembelian->tgl_pembelian . ' - ' . $penjualan->pembelian->pemasok->nama_pemasok }}</option>
                 @foreach ($pembelian as $pem)
-                  <option value="{{ $pem->id_pembelian }}">{{ $pem->tgl_pembelian . ' - ' . $pem->pemasok->nama_pemasok }}</option>
+                  <option value="{{ $pem->id_pembelian }}" {{ $pem->id_pembelian == $penjualan->id_pembelian ? 'selected' : '' }}>{{ $pem->tgl_pembelian . ' - ' . $pem->pemasok->nama_pemasok }}</option>
                 @endforeach
               </select>
             </div>
@@ -44,10 +43,8 @@
               <label for="id_pelanggan" class="block text-sm font-medium text-white">Nama Pelanggan:</label>
               <select id="id_pelanggan" name="id_pelanggan" required
                 class="border rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:border-blue-300 bg-slate-500 text-white">
-                <option value="{{ $penjualan->pelanggan->id_pelanggan }}">{{ $penjualan->pelanggan->nama_pelanggan }}
-                </option>
                 @foreach ($pelanggan as $p)
-                  <option value="{{ $p->id_pelanggan }}">{{ $p->nama_pelanggan }}</option>
+                  <option value="{{ $p->id_pelanggan }}" {{ $p->id_pelanggan == $penjualan->id_pelanggan ? 'selected' : '' }}>{{ $p->nama_pelanggan }}</option>
                 @endforeach
               </select>
             </div>
@@ -56,9 +53,8 @@
               <label for="id_produk" class="block text-sm font-medium text-white">Nama Produk:</label>
               <select id="id_produk" name="id_produk" required
                 class="border rounded-md py-2 px-3 w-full focus:outline-none focus:ring focus:border-blue-300 bg-slate-500 text-white">
-                <option value="{{ $penjualan->produk->id_produk }}">{{ $penjualan->produk->nama_produk }}</option>
                 @foreach ($produk as $p)
-                  <option value="{{ $p->id_produk }}">{{ $p->nama_produk }}</option>
+                  <option value="{{ $p->id_produk }}" {{ $p->id_produk == $penjualan->id_produk ? 'selected' : '' }}>{{ $p->nama_produk }}</option>
                 @endforeach
               </select>
             </div>
